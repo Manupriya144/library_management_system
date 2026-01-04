@@ -1,6 +1,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
-SET time_zone = "+00:00";
+SET time_zone = '+05:30';   -- Sri Lanka / IST
+
 
 START TRANSACTION;
 
@@ -24,10 +25,10 @@ USE test;
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `FullName` varchar(100) DEFAULT NULL,
-  `AdminEmail` varchar(120) DEFAULT NULL,
+  `AdminEmail` varchar(120) DEFAULT NULL UNIQUE,
   `UserName` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
-  `updationDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
+  `updationDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
