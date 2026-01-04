@@ -1,0 +1,76 @@
+library/
+│
+├── public/                          # Public entry points + static assets
+│   ├── index.php                    # Main landing page
+│   ├── dashboard.php                # Admin dashboard
+│   ├── my-profile.php               # Student profile
+│   ├── issued-books.php             # Student view of issued books
+│   ├── issue-book.php               # Issue book form
+│   ├── update-issue-book.php        # Update issued book status
+│   ├── reg-students.php             # Student registration handler
+│   ├── signup.php                   # Student signup page
+│   ├── logout.php                   # Logout handler
+│   ├── manage-authors.php           # Admin: manage authors
+│   ├── manage-books.php             # Admin: manage books
+│   ├── manage-categories.php        # Admin: manage categories
+│   ├── manage-issued-books.php      # Admin: manage issued books
+│   └── assets/                      # Static assets
+│       ├── css/
+│       │   ├── bootstrap.css
+│       │   ├── font-awesome.css
+│       │   └── style.css
+│       ├── js/
+│       ├── img/
+│       └── fonts/
+│
+├── admin/                           # Admin-specific forms
+│   ├── add-author.php
+│   ├── add-book.php
+│   ├── add-category.php
+│   ├── edit-author.php
+│   ├── edit-book.php
+│   ├── edit-category.php
+│
+├── includes/                        # Shared backend logic
+│   ├── config.php                   # DB connection + constants
+│   ├── header.php                   # Common header layout
+│   ├── footer.php                   # Common footer layout
+│   ├── session.php                  # Session handling
+│   ├── functions.php                # Utility functions
+│   ├── adminlogin.php               # Admin login handler
+│   ├── captcha.php                  # Captcha generator
+│   ├── change-password.php          # Password change logic
+│   ├── check_availability.php       # AJAX: check username/email
+│   ├── get_book.php                 # AJAX: fetch book details
+│   ├── get_student.php              # AJAX: fetch student details
+│   ├── user-forgot-password.php     # Forgot password handler
+│   └── index.php                    # Default include (optional)
+│
+├── src/                             # MVC-style separation
+│   ├── Controllers/
+│   │   ├── BookController.php
+│   │   ├── AuthorController.php
+│   │   ├── CategoryController.php
+│   │   ├── IssueController.php
+│   │   └── AuthController.php
+│   ├── Models/
+│   │   ├── Book.php
+│   │   ├── Author.php
+│   │   ├── Category.php
+│   │   ├── Student.php
+│   │   └── Issue.php
+│   └── Helpers/
+│       ├── Validator.php
+│       ├── Captcha.php
+│       └── Session.php
+│
+├── routes/                          # Route definitions
+│   ├── web.php                      # Web routes
+│   └── api.php                      # API endpoints
+│
+├── sql/                             # Database dump files
+│   └── library_db.sql
+│
+├── logs/                            # Error and access logs
+│
+└── .env                             # Environment variables (DB creds, etc.)
