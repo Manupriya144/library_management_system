@@ -223,16 +223,54 @@ height: 60px;
 
 
 
-    /* ===== LOGIN PAGE ENHANCED DESIGN ===== */
+    /* ===== LOGIN & SIGNUP PAGE ENHANCED DESIGN ===== */
 
 body {
     background: linear-gradient(135deg, #4e73df, #1cc88a);
     font-family: 'Open Sans', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Decorative background elements */
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: backgroundMove 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes backgroundMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Wrapper spacing */
 .content-wrapper {
     padding-top: 60px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Header text */
@@ -247,83 +285,524 @@ body {
     margin-bottom: 30px;
 }
 
-/* Login panel */
+/* ===== LOGIN PAGE STYLES (Blue Theme) ===== */
 .panel-info {
     border: none;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 50px rgba(78,115,223,0.25),
+        0 0 0 2px rgba(78,115,223,0.1) inset;
     overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Panel heading */
+/* Login decorative corner - blue theme */
+.panel-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(78,115,223,0.15), transparent);
+    border-radius: 0 0 100% 0;
+    z-index: 0;
+}
+
+.panel-info::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(315deg, rgba(78,115,223,0.1), transparent);
+    border-radius: 100% 0 0 0;
+    z-index: 0;
+}
+
+.panel-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 60px rgba(78,115,223,0.35),
+        0 0 0 2px rgba(78,115,223,0.15) inset;
+}
+
+/* ===== SIGNUP PAGE STYLES (Red/Pink Theme) ===== */
+.panel-danger {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 
+        0 15px 45px rgba(220,53,69,0.25),
+        0 0 0 2px rgba(255,192,203,0.15) inset;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Signup decorative corner - red/pink theme */
+.panel-danger::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(225deg, rgba(220,53,69,0.15), rgba(255,192,203,0.1), transparent);
+    border-radius: 0 0 0 100%;
+    z-index: 0;
+}
+
+.panel-danger::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, rgba(255,192,203,0.15), rgba(220,53,69,0.08), transparent);
+    border-radius: 0 100% 0 0;
+    z-index: 0;
+}
+
+.panel-danger:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 25px 70px rgba(220,53,69,0.4),
+        0 0 0 3px rgba(255,192,203,0.3) inset;
+}
+
+/* Login panel heading - Blue theme */
 .panel-info > .panel-heading {
-    background: #4e73df;
+    background: linear-gradient(135deg, #4e73df, #5a7fe8, #6b8ce8);
     color: #fff;
     font-size: 18px;
     font-weight: 600;
     text-align: center;
-    padding: 15px;
+    padding: 20px 15px;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(78,115,223,0.3);
+}
+
+/* Login heading pattern - diagonal lines */
+.panel-info > .panel-heading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 8px,
+            rgba(255,255,255,0.08) 8px,
+            rgba(255,255,255,0.08) 16px
+        );
+    z-index: -1;
+}
+
+/* Signup panel heading - Red/Pink theme */
+.panel-danger > .panel-heading {
+    background: linear-gradient(135deg, #dc3545, #e85d75, #ff6b9d);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px 15px;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 3px 15px rgba(220,53,69,0.35);
+}
+
+/* Signup heading pattern - wavy lines */
+.panel-danger > .panel-heading::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 12px,
+            rgba(255,255,255,0.1) 12px,
+            rgba(255,255,255,0.1) 24px
+        );
+    z-index: -1;
 }
 
 /* Panel body */
 .panel-body {
     background: #ffffff;
-    padding: 30px;
+    padding: 35px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Signup panel body - reduced padding */
+.panel-danger .panel-body {
+    padding: 18px 20px;
+}
+
+/* Login panel body border - Blue gradient */
+.panel-info .panel-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4e73df, #5a7fe8, #4e73df);
+    background-size: 200% 100%;
+    animation: gradientShift 4s ease infinite;
+}
+
+/* Signup panel body border - Red/Pink gradient */
+.panel-danger .panel-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #dc3545, #ff6b9d, #ffb3d1, #dc3545);
+    background-size: 300% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 /* Form labels */
 .panel-body label {
     font-weight: 600;
     color: #333;
+    display: block;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Signup labels - smaller */
+.panel-danger .panel-body label {
+    font-size: 11px;
+    margin-bottom: 5px;
+    letter-spacing: 0.2px;
+}
+
+/* Login labels - Blue accent */
+.panel-info .panel-body label::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background: linear-gradient(90deg, #4e73df, #5a7fe8, transparent);
+    border-radius: 2px;
+}
+
+/* Signup labels - Red/Pink accent */
+.panel-danger .panel-body label::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    background: linear-gradient(90deg, #dc3545, #ff6b9d, transparent);
+    border-radius: 2px;
 }
 
 /* Inputs */
 .form-control,
 .form-control1 {
+    border-radius: 10px;
+    height: 45px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    padding-left: 15px;
+    background: #fafafa;
+    position: relative;
+}
+
+.form-control::placeholder,
+.form-control1::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Login input focus - Blue theme */
+.panel-info .form-control:focus,
+.panel-info .form-control1:focus {
+    border-color: #4e73df;
+    box-shadow: 
+        0 0 0 4px rgba(78,115,223,0.12),
+        0 5px 15px rgba(78,115,223,0.2);
+    background: #fff;
+    outline: none;
+    transform: translateY(-2px);
+}
+
+/* Signup inputs - smaller size */
+.panel-danger .form-control,
+.panel-danger .form-control1 {
+    height: 36px;
+    font-size: 12px;
+    padding-left: 12px;
+    border-radius: 6px;
+}
+
+/* Signup input focus - Red/Pink theme */
+.panel-danger .form-control:focus,
+.panel-danger .form-control1:focus {
+    border-color: #dc3545;
+    box-shadow: 
+        0 0 0 3px rgba(220,53,69,0.12),
+        0 4px 12px rgba(255,107,157,0.2);
+    background: #fff;
+    outline: none;
+    transform: translateY(-1px);
+}
+
+/* Login input container decoration - Blue */
+.panel-info .form-group {
+    position: relative;
+}
+
+.panel-info .form-group::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #4e73df, #5a7fe8);
+    border-radius: 2px;
+    transition: height 0.3s ease;
+    opacity: 0;
+}
+
+.panel-info .form-group:focus-within::before {
+    height: 65%;
+    opacity: 1;
+}
+
+/* Signup input container decoration - Red/Pink */
+.panel-danger .form-group {
+    position: relative;
+}
+
+.panel-danger .form-group::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(180deg, #dc3545, #ff6b9d);
+    border-radius: 2px;
+    transition: height 0.3s ease;
+    opacity: 0;
+}
+
+.panel-danger .form-group:focus-within::before {
+    height: 65%;
+    opacity: 1;
+}
+
+/* Login captcha image - Blue border */
+.panel-info .panel-body img {
+    margin-top: 8px;
     border-radius: 8px;
-    height: 42px;
-    border: 1px solid #ddd;
+    border: 2px solid #4e73df;
+    box-shadow: 0 3px 10px rgba(78,115,223,0.2);
     transition: all 0.3s ease;
 }
 
-.form-control:focus,
-.form-control1:focus {
-    border-color: #4e73df;
-    box-shadow: 0 0 8px rgba(78,115,223,0.3);
+.panel-info .panel-body img:hover {
+    box-shadow: 0 5px 15px rgba(78,115,223,0.3);
+    transform: scale(1.05);
+    border-color: #5a7fe8;
 }
 
-/* Captcha image */
-.panel-body img {
+/* Signup captcha image - Red border */
+.panel-danger .panel-body img {
     margin-top: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    border-radius: 8px;
+    border: 2px solid #dc3545;
+    box-shadow: 0 3px 10px rgba(220,53,69,0.2);
+    transition: all 0.3s ease;
 }
 
-/* Login button */
+.panel-danger .panel-body img:hover {
+    box-shadow: 0 5px 15px rgba(255,107,157,0.3);
+    transform: scale(1.05);
+    border-color: #ff6b9d;
+}
+
+/* Login button - Blue theme */
 .btn-info {
-    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    background: linear-gradient(135deg, #4e73df, #5a7fe8);
     border: none;
-    border-radius: 25px;
-    padding: 10px 30px;
+    border-radius: 30px;
+    padding: 12px 40px;
     font-weight: bold;
-    letter-spacing: 1px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    box-shadow: 0 5px 20px rgba(78,115,223,0.35);
+}
+
+.btn-info::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-info:hover::before {
+    left: 100%;
 }
 
 .btn-info:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(78,115,223,0.5);
+    color: #fff;
+    background: linear-gradient(135deg, #5a7fe8, #6b8ce8);
 }
 
-/* Links */
-.panel-body a {
+.btn-info:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(78,115,223,0.35);
+}
+
+/* Signup button - Red/Pink theme */
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545, #ff6b9d);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    box-shadow: 0 3px 12px rgba(220,53,69,0.3);
+    font-size: 12px;
+}
+
+.btn-danger::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-danger:hover::before {
+    left: 100%;
+}
+
+.btn-danger:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(255,107,157,0.4);
+    color: #fff;
+    background: linear-gradient(135deg, #ff6b9d, #ffb3d1);
+}
+
+.btn-danger:active {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 4px 15px rgba(220,53,69,0.35);
+}
+
+/* Login links - Blue theme */
+.panel-info .panel-body a {
     color: #4e73df;
     font-weight: 600;
     text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-.panel-body a:hover {
-    text-decoration: underline;
+.panel-info .panel-body a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4e73df, #5a7fe8);
+    transition: width 0.3s ease;
+}
+
+.panel-info .panel-body a:hover {
+    color: #5a7fe8;
+}
+
+.panel-info .panel-body a:hover::after {
+    width: 100%;
+}
+
+/* Signup links - Red/Pink theme */
+.panel-danger .panel-body a {
+    color: #dc3545;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.panel-danger .panel-body a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #dc3545, #ff6b9d);
+    transition: width 0.3s ease;
+}
+
+.panel-danger .panel-body a:hover {
+    color: #ff6b9d;
+}
+
+.panel-danger .panel-body a:hover::after {
+    width: 100%;
 }
 
 /* Forgot password */
@@ -331,10 +810,56 @@ body {
     font-size: 13px;
 }
 
+/* Signup page specific - Email availability status */
+#user-availability-status {
+    display: block;
+    margin-top: 3px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Form group spacing for signup */
+.panel-body .form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* Signup form group - reduced spacing */
+.panel-danger .panel-body .form-group {
+    margin-bottom: 12px;
+}
+
+/* Login decorative divider - Blue theme */
+.panel-info .panel-body .form-group:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(78,115,223,0.2), transparent);
+}
+
+/* Signup decorative divider - Red/Pink theme */
+.panel-danger .panel-body .form-group:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,107,157,0.15), transparent);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .content-wrapper {
         padding-top: 40px;
+    }
+    
+    .panel-info,
+    .panel-danger {
+        margin: 10px;
     }
 }
 
