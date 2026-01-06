@@ -1,0 +1,48 @@
+/* ===== MODERN FOOTER ===== */
+.footer-modern {
+    background: linear-gradient(135deg, #5f5bff, #9b5cff);
+    padding: 20px 0;
+    color: #fff;
+    margin-top: 60px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer-modern .footer-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Footer links */
+.footer-modern a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-modern a:hover {
+    color: #ffd6ff;
+}
+
+/* Heart icon */
+.footer-modern .fa-heart {
+    color: #ff6b81;
+    margin: 0 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-modern {
+        text-align: center;
+    }
+
+    .footer-modern .text-right,
+    .footer-modern .text-left {
+        text-align: center;
+    }
+
+    .footer-modern .row > div {
+        margin-bottom: 8px;
+    }
+}

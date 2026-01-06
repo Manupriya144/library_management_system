@@ -15,7 +15,7 @@ catch (PDOException $e)
 exit("Error: " . $e->getMessage());
 }
 
-echo "hi";
+//echo "hi";
 
 /*
 <?php

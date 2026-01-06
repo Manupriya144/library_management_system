@@ -1,0 +1,89 @@
+/* ===== TOP NAVBAR ===== */
+.navbar-inverse.set-radius-zero {
+    
+    border: none;
+    border-radius: 0;
+    
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+*{
+    margin-top: 0px;
+}
+
+/* Logo */
+.navbar-brand img {
+    height: 100px;
+    width: 300px;
+    padding:0px;
+    margin-top: 0px;
+}
+
+/* Logout button */
+.right-div .btn-danger {
+    background: #ff4d6d;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.right-div .btn-danger:hover {
+    background: #e63950;
+    transform: translateY(-2px);
+}
+
+
+
+/* Menu links */
+#menu-top > li > a {
+    color: #444;
+    font-weight: 600;
+    padding: 15px 18px;
+    transition: all 0.3s ease;
+}
+
+/* Hover + active */
+#menu-top > li > a:hover,
+#menu-top > li > a.menu-top-active {
+    background: linear-gradient(135deg, #4f7cff, #2ec4b6);
+    color: #fff;
+    border-radius: 20px;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 10px 0;
+}
+
+/* Dropdown links */
+.dropdown-menu > li > a {
+    font-weight: 600;
+    padding: 10px 20px;
+    color: #333;
+}
+
+.dropdown-menu > li > a:hover {
+    background: linear-gradient(135deg, #4f7cff, #2ec4b6);
+    color: #fff;
+}
+
+/* Mobile toggle */
+.navbar-toggle {
+    border: none;
+}
+
+.navbar-toggle .icon-bar {
+    background: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    #menu-top > li > a {
+        border-radius: 0;
+        margin-bottom: 5px;
+    }
+}

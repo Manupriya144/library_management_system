@@ -1,0 +1,341 @@
+
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% Free To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+
+
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height:28px;
+   
+}
+.set-radius-zero {
+    border-radius:0px;
+    -moz-border-radius:0px;
+    -webkit-border-radius:0px;
+}
+.content-wrapper {
+    margin-top: 40px;
+    min-height:800px;
+    padding-bottom:90px;
+}
+.header-line {
+    font-weight:900;
+    padding-bottom:25px;
+    border-bottom:1px solid #eeeeee;
+    text-transform:uppercase;
+}
+.pad-botm {
+    padding-bottom:30px;
+}
+
+
+/* =============================================================
+   NAVBAR & MENU STYLES
+ ============================================================ */
+
+.right-div {
+    float: right; 
+    padding: 20px;
+}
+#menu-top a {
+    color:#000;
+    text-decoration:none;
+    font-weight:500;
+    padding: 25px 15px 25px 15px;
+    text-transform:uppercase;
+
+}
+.menu-section {
+    background-color: #f7f7f7;
+   
+    width:100%
+}
+.menu-top-active {
+    background-color:#eeeeee;
+}
+.navbar-inverse {
+background-color: #FFF;
+border-color: rgba(155, 153, 153, 0.23);
+
+}
+
+.navbar {
+    min-height: 90px;
+    margin-bottom: 0px;
+   
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color:transparent;
+}
+.navbar-toggle {
+background-color: black;
+border: 1px solid black;
+}
+
+    /* =============================================================
+   DASHBOARD STYLES
+ ============================================================ */
+
+.img-comments {
+   border: 3px double #e1e1e1;
+height: 60px;
+
+}
+
+.chat-widget-main {
+    max-height:330px;
+    overflow:auto;
+}
+
+.slide-bdr {
+   border:5px solid #9170E4
+}
+.chat-widget-left:after {
+    top: 100%;
+    left: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #F70E62;
+    border-width: 15px;
+    margin-left: -15px;
+}
+
+.chat-widget-left {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #F70E62;
+    font-size:12px;
+}
+.chat-widget-right:after {
+    top: 100%;
+    right: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #5AA8CC;
+    border-width: 15px;
+    margin-left: -15px;
+}
+
+.chat-widget-right {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #5AA8CC;
+    font-size:12px;
+}
+
+.chat-widget-name-left {
+   color: #808080;
+    margin-top: 30px;
+    margin-left: 60px;
+    text-align:left;
+}
+
+    .img-left-chat {
+        border:3px double #e1e1e1;
+        float:left;
+        margin-right:30px;
+    }
+     .img-right-chat {
+        border:3px double #e1e1e1;
+        float:right;
+        margin-left:30px;
+    }
+     .chat-widget-main img-right {
+        border:3px double #e1e1e1;
+        float:left;
+    }
+.chat-widget-name-left h4 {
+    font-weight:normal;
+    font-size:11px;
+    
+}
+.chat-widget-name-left h5 {
+    font-weight:normal;
+    font-size:10px;
+}
+.chat-widget-name-right h4 {
+    font-weight:normal;
+    font-size:11px;
+}
+.chat-widget-name-right h5 {
+    font-weight:normal;
+    font-size:10px;
+}
+.chat-widget-name-right {
+    color: #808080;
+    margin-top: 40px;
+    margin-right: 60px;
+    text-align:right;
+}
+
+.recent-users-sec img {
+    max-height:80px;
+    margin:15px;
+}
+
+.back-widget-set {
+    background-color:transparent;
+}
+
+/* =============================================================
+   FOOTER SECTION STYLES
+ ============================================================ */
+.footer-section {
+    padding:25px 50px 25px 50px;
+    color:#000;
+    font-size:13px;
+      background-color: #f7f7f7;
+      text-align:right;
+       border-top:5px solid #9170E4;
+
+}
+
+    .footer-section a, .footer-section a:hover {
+        color:#000;
+    }
+
+
+
+
+
+    /* ===== LOGIN PAGE ENHANCED DESIGN ===== */
+
+body {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Wrapper spacing */
+.content-wrapper {
+    padding-top: 60px;
+}
+
+/* Header text */
+.header-line {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.login-subtext {
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+/* Login panel */
+.panel-info {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/* Panel heading */
+.panel-info > .panel-heading {
+    background: #4e73df;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Panel body */
+.panel-body {
+    background: #ffffff;
+    padding: 30px;
+}
+
+/* Form labels */
+.panel-body label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Inputs */
+.form-control,
+.form-control1 {
+    border-radius: 8px;
+    height: 42px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-control1:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 8px rgba(78,115,223,0.3);
+}
+
+/* Captcha image */
+.panel-body img {
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Login button */
+.btn-info {
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Links */
+.panel-body a {
+    color: #4e73df;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.panel-body a:hover {
+    text-decoration: underline;
+}
+
+/* Forgot password */
+.help-block a {
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding-top: 40px;
+    }
+}
+
+
