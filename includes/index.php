@@ -58,6 +58,18 @@ if (isset($_POST['login'])) {
     
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+     <style>
+    body {
+        background: none !important;
+    }
+    body::before,
+    body::after {
+        display: none !important;
+    }
+  h4 {
+        color: #000 !important;
+    }
+</style>
 
 </head>
 <body>
