@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include('..\includes\config.php');
+include('config.php');
 error_reporting(0);
 if(isset($_POST['signup']))
 {
@@ -20,10 +20,10 @@ $StudentId= $hits[0];
 $fname=$_POST['fullanme'];
 $mobileno=$_POST['mobileno'];
 $email=$_POST['email']; 
-$password=md5($_POST['password']); 
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 $status=1;
 $sql="INSERT INTO  tblstudents(StudentId,FullName,MobileNumber,EmailId,Password,Status) VALUES(:StudentId,:fname,:mobileno,:email,:password,:status)";
-$query = $dbh->prepare($sql);
+$query = $db->prepare($sql);
 $query->bindParam(':StudentId',$StudentId,PDO::PARAM_STR);
 $query->bindParam(':fname',$fname,PDO::PARAM_STR);
 $query->bindParam(':mobileno',$mobileno,PDO::PARAM_STR);
@@ -31,7 +31,7 @@ $query->bindParam(':email',$email,PDO::PARAM_STR);
 $query->bindParam(':password',$password,PDO::PARAM_STR);
 $query->bindParam(':status',$status,PDO::PARAM_STR);
 $query->execute();
-$lastInsertId = $dbh->lastInsertId();
+$lastInsertId = $db->lastInsertId();
 if($lastInsertId)
 {
 echo '<script>alert("Your Registration successfull and your student id is  "+"'.$StudentId.'")</script>';
@@ -99,7 +99,7 @@ error:function (){}
 </head>
 <body>
     <!------MENU SECTION START-->
-<?php include('..\includes\header.php');?>
+<?php include('header.php');?>
 <!-- MENU SECTION END-->
     <div class="content-wrapper">
          <div class="container">
@@ -159,11 +159,12 @@ error:function (){}
     </div>
     </div>
      <!-- CONTENT-WRAPPER SECTION END-->
-    <?php include('includes/footer.php');?>
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <?php include('footer.php');?>
+    <!-- FOOTER SECTION END-->
+    <script src="..\public\assests\js\jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="..\public\assests\js\bootstrap.js"></script>
       <!-- CUSTOM SCRIPTS  -->
-    <script src="assets/js/custom.js"></script>
+    <script src="..\public\assests\js\custom.js"></script>
 </body>
 </html>
