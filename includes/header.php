@@ -12,17 +12,17 @@
                 </a>
 
             </div>
-<?php if($_SESSION['login'])
+<?php if(isset($_SESSION['login']) && $_SESSION['login'])
 {
 ?> 
             <div class="right-div">
-                <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
+                <a href="..\public\logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
             </div>
             <?php }?>
         </div>
     </div>
     <!-- LOGO HEADER END-->
-<?php if($_SESSION['login'])
+<?php if(isset($_SESSION['login']) && $_SESSION['login'])
 {
 ?>    
 <section class="menu-section">
