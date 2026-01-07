@@ -1,48 +1,42 @@
 <?php
 session_start();
-error_reporting(0);
-include('config.php');
-if($_SESSION['login']!=''){
-$_SESSION['login']='';
-}
-if(isset($_POST['login']))
-{
-  //code for captach verification
-if ($_POST["vercode"] != $_SESSION["vercode"] OR $_SESSION["vercode"]=='')  {
-        echo "<script>alert('Incorrect verification code');</script>" ;
-    } 
-        else {
-$email=$_POST['emailid'];
-$password=md5($_POST['password']);
-$sql ="SELECT EmailId,Password,StudentId,Status FROM tblstudents WHERE EmailId=:email and Password=:password";
-$query= $dbh -> prepare($sql);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
-$query-> bindParam(':password', $password, PDO::PARAM_STR);
-$query-> execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
+include('config.php'); // contains $db = new PDO(...);
 
-if($query->rowCount() > 0)
-{
- foreach ($results as $result) {
- $_SESSION['stdid']=$result->StudentId;
-if($result->Status==1)
-{
-$_SESSION['login']=$_POST['emailid'];
-echo "<script type='text/javascript'> document.location ='dashboard.php'; </script>";
-} else {
-echo "<script>alert('Your Account Has been blocked .Please contact admin');</script>";
+if (isset($_POST['login'])) {
+    // CAPTCHA check (optional)
+    if ($_POST["vercode"] != $_SESSION["vercode"] || $_SESSION["vercode"] == '') {
+        echo "<script>alert('Incorrect verification code');</script>";
+    } else {
+        $email    = $_POST['emailid'];
+        $password = $_POST['password'];
 
-}
-}
+        // Fetch stored hash by email
+        $sql = "SELECT StudentId, EmailId, Password, Status FROM tblstudents WHERE EmailId=:email";
+        $query = $db->prepare($sql);
+        $query->bindParam(':email', $email, PDO::PARAM_STR);
+        $query->execute();
+        $result = $query->fetch(PDO::FETCH_OBJ);
 
-} 
-
-else{
-echo "<script>alert('Invalid Details');</script>";
-}
-}
+        if ($result) {
+            // Verify entered password against stored hash
+            if (password_verify($password, $result->Password)) {
+                if ($result->Status == 1) {
+                    $_SESSION['stdid'] = $result->StudentId;
+                    $_SESSION['login'] = $result->EmailId;
+                    echo "<script type='text/javascript'> document.location = '../public/dashboard.php'; </script>";
+                } else {
+                    echo "<script>alert('Your Account Has been blocked. Please contact admin');</script>";
+                }
+            } else {
+                echo "<script>alert('Invalid Password');</script>";
+            }
+        } else {
+            echo "<script>alert('Invalid Email');</script>";
+        }
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
