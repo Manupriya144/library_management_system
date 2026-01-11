@@ -24,7 +24,7 @@ $result = $query->fetch(PDO::FETCH_ASSOC);
 
 if ($result && password_verify($password, $result['Password'])) {
     $_SESSION['alogin'] = $username;
-    echo "<script type='text/javascript'> document.location ='../public/dashboard.php'; </script>";
+    echo "<script type='text/javascript'> document.location ='../admin/dashboard.php'; </script>";
 } else {
     echo "<script>alert('Invalid Details');</script>";
 }
