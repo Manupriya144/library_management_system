@@ -1,8 +1,5 @@
 /* ===== PAGE BACKGROUND ===== */
-body {
-    background: linear-gradient(135deg, #5f5bff, #9b5cff);
-    font-family: 'Open Sans', sans-serif;
-}
+
 
 /* Remove default spacing */
 .content-wrapper {

@@ -1,3 +1,16 @@
+/* REMOVE BODY BACKGROUND GRADIENT - MUST BE FIRST */
+html, html body, body {
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+html::before, html::after, body::before, body::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+}
 
 /*=============================================================
     Authour URI: www.binarytheme.com
@@ -16,10 +29,20 @@
    GENERAL STYLES
  ============================================================ */
 
-body {
+html, body {
     font-family: 'Open Sans', sans-serif;
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+body {
     line-height:28px;
-   
+}
+
+html::before, html::after, body::before, body::after {
+    display: none !important;
+    content: none !important;
 }
 .set-radius-zero {
     border-radius:0px;
@@ -225,46 +248,23 @@ height: 60px;
 
     /* ===== LOGIN & SIGNUP PAGE ENHANCED DESIGN ===== */
 
+html, body {
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
 body {
-    background: linear-gradient(135deg, #4e73df, #1cc88a);
     font-family: 'Open Sans', sans-serif;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Decorative background elements */
-body::before {
-    content: "";
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: backgroundMove 20s linear infinite;
-    pointer-events: none;
-    z-index: 0;
+html::before, html::after, body::before, body::after {
+    display: none !important;
+    content: none !important;
 }
 
-@keyframes backgroundMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
-}
 
 /* Wrapper spacing */
 .content-wrapper {
@@ -861,6 +861,22 @@ body::after {
     .panel-danger {
         margin: 10px;
     }
+}
+
+/* FINAL OVERRIDE - MUST BE LAST TO OVERRIDE ALL OTHER CSS FILES */
+html, html body, body {
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+html::before, html::after, body::before, body::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
+    background-image: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
 }
 
 
