@@ -50,6 +50,26 @@ header('location:manage-categories.php');
      h4 {
         color: #000 !important;
     }
+    /* Ensure all action buttons have consistent shape */
+    #dataTables-example .btn-primary,
+    #dataTables-example .btn-danger {
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 14px;
+        border: none;
+    }
+    .nice{
+        background-color: #d9534f;
+        color:white;
+        boarder: color #d43f3a;
+        background: linear-gradient(135deg, #dc3545, #ff6b9d);
+        display:inline-block;
+        padding: 1px 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+
+    }
 </style>    
 
 </head>
@@ -147,14 +167,13 @@ foreach($results as $result)
                                             <td class="center"><?php if($result->Status==1) {?>
                                             <a href="#" class="btn btn-success btn-xs">Active</a>
                                             <?php } else {?>
-                                            <a href="#" class="btn btn-danger btn-xs">Inactive</a>
+                                            <a href="#" class="nice">Inactive</a>
                                             <?php } ?></td>
                                             <td class="center"><?php echo htmlentities($result->CreationDate);?></td>
                                             <td class="center"><?php echo htmlentities($result->UpdationDate);?></td>
                                             <td class="center">
-
-                                            <a href="edit-categories.php?catid=<?php echo htmlentities($result->id);?>"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button> 
-                                          <a href="manage-categories.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to delete?');"" >  <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
+                                            <a href="edit-categories.php?catid=<?php echo htmlentities($result->id);?>"><button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button></a>
+                                            <a href="manage-categories.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to delete?');"><button class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button></a>
                                             </td>
                                         </tr>
  <?php $cnt=$cnt+1;}} ?>                                      
