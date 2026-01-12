@@ -94,7 +94,14 @@ $("#loaderIcon").hide();
 error:function (){}
 });
 }
-</script>    
+</script>
+
+<style>
+
+h4 {
+        color: #000 !important;
+    }
+</style>
 
 </head>
 <body>

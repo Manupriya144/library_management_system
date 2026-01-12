@@ -54,6 +54,13 @@ if ($result && password_verify($password, $result['Password'])) {
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
+<style>
+
+h4 {
+        color: #000 !important;
+    }
+</style>
+
 </head>
 <body>
     <!------MENU SECTION START-->
