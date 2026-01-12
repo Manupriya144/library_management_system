@@ -749,6 +749,22 @@ html::before, html::after, body::before, body::after {
     box-shadow: 0 4px 15px rgba(220,53,69,0.35);
 }
 
+/* Inactive status pill (small danger button in tables) */
+.btn-danger.btn-xs {
+    background: linear-gradient(135deg, #6c757d, #adb5bd); /* neutral grey, not red like Delete */
+    border-radius: 999px;
+    padding: 3px 14px;
+    font-size: 11px;
+    box-shadow: 0 2px 8px rgba(108,117,125,0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-danger.btn-xs:hover {
+    background: linear-gradient(135deg, #5c636a, #adb5bd);
+    box-shadow: 0 3px 10px rgba(108,117,125,0.5);
+}
+
 /* Login links - Blue theme */
 .panel-info .panel-body a {
     color: #4e73df;

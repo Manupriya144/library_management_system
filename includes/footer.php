@@ -10,7 +10,7 @@
 
             <div class="col-md-6 text-right">
                 <p class="footer-text">
-                    Designed with <i class="fa fa-heart"></i> by 
+                    Designed by :
                     <a href="https://github.com/Manupriya144" target="_blank">
                         Manupriya Ranjika
                     </a>

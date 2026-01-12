@@ -30,7 +30,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem1" data-toggle="dropdown"> Categories <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem1">
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="add-category.php">Add Category</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="categories.php">Add Category</a></li>
                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="manage-categories.php">Manage Categories</a></li>
                                 </ul>
                             </li>
