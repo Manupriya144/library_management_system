@@ -45,6 +45,21 @@ header('location:manage-authors.php');
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+     h4 {
+        color: #000 !important;
+    }
+    /* Ensure all action buttons have consistent shape */
+    #dataTables-example .btn-primary,
+    #dataTables-example .btn-danger {
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 14px;
+        border: none;
+    }
+
+</style>   
+
 
 </head>
 <body>

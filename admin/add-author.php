@@ -15,7 +15,7 @@ $sql="INSERT INTO  tblauthors(AuthorName) VALUES(:author)";
 $query = $db->prepare($sql);
 $query->bindParam(':author',$author,PDO::PARAM_STR);
 $query->execute();
-$lastInsertId = $dbh->lastInsertId();
+$lastInsertId = $db->lastInsertId();
 if($lastInsertId)
 {
 $_SESSION['msg']="Author Listed successfully";
