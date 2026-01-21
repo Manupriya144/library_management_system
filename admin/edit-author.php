@@ -10,17 +10,16 @@ else{
 
 if(isset($_POST['update']))
 {
-$category=$_POST['category'];
-$status=$_POST['status'];
-$catid=intval($_GET['catid']);
-$sql="update  tblcategory set CategoryName=:category,Status=:status where id=:catid";
+$athrid=intval($_GET['athrid']);
+$author=$_POST['author'];
+$sql="update  tblauthors set AuthorName=:author where id=:athrid";
 $query = $db->prepare($sql);
-$query->bindParam(':category',$category,PDO::PARAM_STR);
-$query->bindParam(':status',$status,PDO::PARAM_STR);
-$query->bindParam(':catid',$catid,PDO::PARAM_STR);
+$query->bindParam(':author',$author,PDO::PARAM_STR);
+$query->bindParam(':athrid',$athrid,PDO::PARAM_STR);
 $query->execute();
-$_SESSION['updatemsg']="Brand updated successfully";
-header('location:manage-categories.php');
+$_SESSION['updatemsg']="Author info updated successfully";
+header('location:manage-authors.php');
+
 
 
 }
@@ -32,7 +31,7 @@ header('location:manage-categories.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Online Library Management System | Edit Categories</title>
+    <title>Online Library Management System | Add Author</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="../public/assests/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
@@ -60,7 +59,7 @@ header('location:manage-categories.php');
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line">Edit category</h4>
+                <h4 class="header-line">Add Author</h4>
                 
                             </div>
 
@@ -69,54 +68,28 @@ header('location:manage-categories.php');
 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"">
 <div class="panel panel-info">
 <div class="panel-heading">
-Category Info
+Author Info
 </div>
- 
 <div class="panel-body">
 <form role="form" method="post">
+<div class="form-group">
+<label>Author Name</label>
 <?php 
-$catid=intval($_GET['catid']);
-$sql="SELECT * from tblcategory where id=:catid";
-$query=$db->prepare($sql);
-$query-> bindParam(':catid',$catid, PDO::PARAM_STR);
+$athrid=intval($_GET['athrid']);
+$sql = "SELECT * from  tblauthors where id=:athrid";
+$query = $db -> prepare($sql);
+$query->bindParam(':athrid',$athrid,PDO::PARAM_STR);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
 if($query->rowCount() > 0)
 {
 foreach($results as $result)
-{               
-  ?> 
-<div class="form-group">
-<label>Category Name</label>
-<input class="form-control" type="text" name="category" value="<?php echo htmlentities($result->CategoryName);?>" required />
-</div>
-<div class="form-group">
-<label>Status</label>
-<?php if($result->Status==1) {?>
- <div class="radio">
-<label>
-<input type="radio" name="status" id="status" value="1" checked="checked">Active
-</label>
-</div>
-<div class="radio">
-<label>
-<input type="radio" name="status" id="status" value="0">Inactive
-</label>
-</div>
-<?php } else { ?>
-<div class="radio">
-<label>
-<input type="radio" name="status" id="status" value="0" checked="checked">Inactive
-</label>
-</div>
- <div class="radio">
-<label>
-<input type="radio" name="status" id="status" value="1">Active
-</label>
-</div
-<?php } ?>
-</div>
+{               ?>   
+<input class="form-control" type="text" name="author" value="<?php echo htmlentities($result->AuthorName);?>" required />
 <?php }} ?>
+</div>
+
 <button type="submit" name="update" class="btn btn-info">Update </button>
 
                                     </form>
@@ -129,9 +102,9 @@ foreach($results as $result)
     </div>
     </div>
      <!-- CONTENT-WRAPPER SECTION END-->
-  <?php include('../includes/footer.php');?>
+  <?php include('includes/footer.php');?>
       <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+  
     <!-- CORE JQUERY  -->
     <script src="../public/assests/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
