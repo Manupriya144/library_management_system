@@ -194,15 +194,15 @@ CREATE TABLE `tblstudents` (
 ## 🚀 Usage
 1. Navigate to `http://localhost/library_management_system` in your browser.
 2. Register or log in to access the platform.
-3.Add books and manage inventory.
+3. Add books and manage inventory.
 4. Register users.
-5.Issue and return books.
-6.Monitor library activity through records.
+5. Issue and return books.
+6. Monitor library activity through records.
 
 
 
 ## 🔮 Future Enhancements
--- Role-based access (Admin / Librarian / Member).
+- Role-based access (Admin / Librarian / Member).
 - Book search and filtering.
 - Fine calculation for late returns.
 - Email notifications.
