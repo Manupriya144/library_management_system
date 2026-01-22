@@ -13,8 +13,8 @@ START TRANSACTION;
 
 
 
-CREATE DATABASE test;
-USE test;
+CREATE DATABASE library;
+USE ibrary;
 
 
 
