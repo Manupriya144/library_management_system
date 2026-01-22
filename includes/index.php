@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('config.php'); // contains $db = new PDO(...);
+include('config.php'); 
 
 if (isset($_POST['login'])) {
     // CAPTCHA check (optional)

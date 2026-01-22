@@ -102,7 +102,7 @@ if(isset($_POST['change'])) {
 </head>
 
 <body>
-<?php include('includes/header.php'); ?>
+<?php include('header.php'); ?>
 
 <div class="content-wrapper">
 <div class="container">
@@ -157,11 +157,14 @@ if(isset($_POST['change'])) {
 </div>
 </div>
 
-<?php include('includes/footer.php'); ?>
-
-<script src="assets/js/jquery-1.10.2.js"></script>
-<script src="assets/js/bootstrap.js"></script>
-<script src="assets/js/custom.js"></script>
+<?php include('../includes/footer.php');?>
+      <!-- FOOTER SECTION END-->
+    <!-- CORE JQUERY  -->
+    <script src="../public/assests/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="../public/assests/js/bootstrap.js"></script>
+      <!-- CUSTOM SCRIPTS  -->
+    <script src="../public/assests/js/custom.js"></script>
 
 </body>
 </html>
