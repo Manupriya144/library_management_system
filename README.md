@@ -3,8 +3,19 @@
 
 # 📚 Library Management System
 
-MIT License · PHP · MySQL · HTML · CSS · Bootstrap  
-Last Commit · Issues · Pull Requests · Stars
+# 📚 Library Management System
+
+![License](https://img.shields.io/badge/license-MIT-green)
+![PHP](https://img.shields.io/badge/PHP-7%2B-blue)
+![Database](https://img.shields.io/badge/Database-MySQL%2FMariaDB-orange)
+![Frontend](https://img.shields.io/badge/Frontend-Bootstrap%205-purple)
+![HTML](https://img.shields.io/badge/HTML-5-red)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![Last Commit](https://img.shields.io/github/last-commit/Manupriya144/library_management_system)
+![Issues](https://img.shields.io/github/issues/Manupriya144/library_management_system)
+![Pull Requests](https://img.shields.io/github/issues-pr/Manupriya144/library_management_system)
+![Stars](https://img.shields.io/github/stars/Manupriya144/library_management_system)
+
 
 Library Management System is a web-based application designed to manage and automate library operations such as book management, user management, and book issuing/returning. Built using **PHP** and **MySQL** with a responsive **Bootstrap** frontend, this system provides an efficient and user-friendly solution for libraries.
 
