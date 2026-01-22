@@ -51,11 +51,8 @@ echo "<script>alert('Something went wrong. Please try again');</script>";
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
     <title>Online Library Management System | Student Signup</title>
-    <!-- BOOTSTRAP CORE STYLE  -->
+    
     <link href="..\public\assests\css\bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
     <link href="..\public\assests\css\font-awesome.css" rel="stylesheet" />
