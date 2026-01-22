@@ -194,29 +194,29 @@ CREATE TABLE `tblstudents` (
 ## 🚀 Usage
 1. Navigate to `http://localhost/library_management_system` in your browser.
 2. Register or log in to access the platform.
-3.Add books and manage inventory
-4. Register users
+3.Add books and manage inventory.
+4. Register users.
 5.Issue and return books.
 6.Monitor library activity through records.
 
 
 
 ## 🔮 Future Enhancements
--- Role-based access (Admin / Librarian / Member)
-- Book search and filtering
-- Fine calculation for late returns
-- Email notifications
-- Report generation (PDF / Excel)
-- UI enhancements
+-- Role-based access (Admin / Librarian / Member).
+- Book search and filtering.
+- Fine calculation for late returns.
+- Email notifications.
+- Report generation (PDF / Excel).
+- UI enhancements.
 
 
 ## 🧑‍💻 Contributing
 1. **Fork** the repository.
-2. Create a new branch
+2. Create a new branch.
 3. Add features, improve the UI, or enhance backend functionality.
-4.Commit changes
-5.Submit a pull request with a clear description
+4.Commit changes.
+5.Submit a pull request with a clear description.
 
 ## 👨‍💻 Author
 Developed by [Manupriya Ranjika](https://github.com/Manupriya144).
--published on 2026-01-22
+-published on 2026-01-22.
