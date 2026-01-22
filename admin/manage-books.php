@@ -10,12 +10,12 @@ else{
 if(isset($_GET['del']))
 {
 $id=$_GET['del'];
-$sql = "delete from tblcategory  WHERE id=:id";
+$sql = "delete from tblbooks  WHERE id=:id";
 $query = $db->prepare($sql);
 $query -> bindParam(':id',$id, PDO::PARAM_STR);
 $query -> execute();
 $_SESSION['delmsg']="Category deleted scuccessfully ";
-header('location:manage-categories.php');
+header('location:manage-books.php');
 
 }
 
@@ -28,8 +28,8 @@ header('location:manage-categories.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Online Library Management System | Manage Categories</title>
-    <!-- BOOTSTRAP CORE STYLE  -->
+    <title>Online Library Management System | Manage Books</title>
+   <!-- BOOTSTRAP CORE STYLE  -->
     <link href="../public/assests/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
     <link href="../public/assests/css/font-awesome.css" rel="stylesheet" />
@@ -45,8 +45,7 @@ header('location:manage-categories.php');
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<style>
+    <style>
      h4 {
         color: #000 !important;
     }
@@ -58,19 +57,8 @@ header('location:manage-categories.php');
         font-size: 14px;
         border: none;
     }
-    .nice{
-        background-color: #d9534f;
-        color:white;
-        boarder: color #d43f3a;
-        background: linear-gradient(135deg, #dc3545, #ff6b9d);
-        display:inline-block;
-        padding: 1px 5px;
-        font-size: 12px;
-        line-height: 1.5;
-        border-radius: 3px;
 
-    }
-</style>    
+</style> 
 
 </head>
 <body>
@@ -81,7 +69,7 @@ header('location:manage-categories.php');
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line" >Manage Categories</h4>
+                <h4 class="header-line">Manage Books</h4>
     </div>
      <div class="row">
     <?php if($_SESSION['error']!="")
@@ -136,7 +124,7 @@ header('location:manage-categories.php');
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           Categories Listing
+                           Books Listing
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -144,15 +132,16 @@ header('location:manage-categories.php');
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Book Name</th>
                                             <th>Category</th>
-                                            <th>Status</th>
-                                            <th>Creation Date</th>
-                                            <th>Updation Date</th>
+                                            <th>Author</th>
+                                            <th>ISBN</th>
+                                            <th>Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-<?php $sql = "SELECT * from  tblcategory";
+<?php $sql = "SELECT tblbooks.BookName,tblcategory.CategoryName,tblauthors.AuthorName,tblbooks.ISBNNumber,tblbooks.BookPrice,tblbooks.id as bookid from  tblbooks join tblcategory on tblcategory.id=tblbooks.CatId join tblauthors on tblauthors.id=tblbooks.AuthorId";
 $query = $db -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -163,17 +152,15 @@ foreach($results as $result)
 {               ?>                                      
                                         <tr class="odd gradeX">
                                             <td class="center"><?php echo htmlentities($cnt);?></td>
+                                            <td class="center"><?php echo htmlentities($result->BookName);?></td>
                                             <td class="center"><?php echo htmlentities($result->CategoryName);?></td>
-                                            <td class="center"><?php if($result->Status==1) {?>
-                                            <a href="#" class="btn btn-success btn-xs">Active</a>
-                                            <?php } else {?>
-                                            <a href="#" class="nice">Inactive</a>
-                                            <?php } ?></td>
-                                            <td class="center"><?php echo htmlentities($result->CreationDate);?></td>
-                                            <td class="center"><?php echo htmlentities($result->UpdationDate);?></td>
+                                            <td class="center"><?php echo htmlentities($result->AuthorName);?></td>
+                                            <td class="center"><?php echo htmlentities($result->ISBNNumber);?></td>
+                                            <td class="center"><?php echo htmlentities($result->BookPrice);?></td>
                                             <td class="center">
-                                            <a href="edit-categories.php?catid=<?php echo htmlentities($result->id);?>"><button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button></a>
-                                            <a href="manage-categories.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to delete?');"><button class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button></a>
+
+                                            <a href="edit-book.php?bookid=<?php echo htmlentities($result->bookid);?>"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button> 
+                                          <a href="manage-books.php?del=<?php echo htmlentities($result->bookid);?>" onclick="return confirm('Are you sure you want to delete?');"" >  <button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
                                             </td>
                                         </tr>
  <?php $cnt=$cnt+1;}} ?>                                      
@@ -193,7 +180,7 @@ foreach($results as $result)
     </div>
 
      <!-- CONTENT-WRAPPER SECTION END-->
-  <?php include('../includes/footer.php');?>
+  <?php include('includes/footer.php');?>
       <!-- FOOTER SECTION END-->
     
     <!-- CORE JQUERY  -->

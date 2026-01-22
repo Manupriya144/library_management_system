@@ -7,17 +7,7 @@ if(strlen($_SESSION['alogin'])==0)
 header('location:../includes/index.php');
 }
 else{ 
-if(isset($_GET['del']))
-{
-$id=$_GET['del'];
-$sql = "delete from tblcategory  WHERE id=:id";
-$query = $db->prepare($sql);
-$query -> bindParam(':id',$id, PDO::PARAM_STR);
-$query -> execute();
-$_SESSION['delmsg']="Category deleted scuccessfully ";
-header('location:manage-categories.php');
 
-}
 
 
     ?>
@@ -28,7 +18,7 @@ header('location:manage-categories.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Online Library Management System | Manage Categories</title>
+    <title>Online Library Management System | Manage Issued Books</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="../public/assests/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
@@ -46,7 +36,7 @@ header('location:manage-categories.php');
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
+       <style>
      h4 {
         color: #000 !important;
     }
@@ -58,20 +48,8 @@ header('location:manage-categories.php');
         font-size: 14px;
         border: none;
     }
-    .nice{
-        background-color: #d9534f;
-        color:white;
-        boarder: color #d43f3a;
-        background: linear-gradient(135deg, #dc3545, #ff6b9d);
-        display:inline-block;
-        padding: 1px 5px;
-        font-size: 12px;
-        line-height: 1.5;
-        border-radius: 3px;
 
-    }
-</style>    
-
+</style> 
 </head>
 <body>
       <!------MENU SECTION START-->
@@ -81,7 +59,7 @@ header('location:manage-categories.php');
          <div class="container">
         <div class="row pad-botm">
             <div class="col-md-12">
-                <h4 class="header-line" >Manage Categories</h4>
+                <h4 class="header-line">Manage Issued Books</h4>
     </div>
      <div class="row">
     <?php if($_SESSION['error']!="")
@@ -104,16 +82,7 @@ header('location:manage-categories.php');
 </div>
 </div>
 <?php } ?>
-<?php if($_SESSION['updatemsg']!="")
-{?>
-<div class="col-md-6">
-<div class="alert alert-success" >
- <strong>Success :</strong> 
- <?php echo htmlentities($_SESSION['updatemsg']);?>
-<?php echo htmlentities($_SESSION['updatemsg']="");?>
-</div>
-</div>
-<?php } ?>
+
 
 
    <?php if($_SESSION['delmsg']!="")
@@ -136,7 +105,7 @@ header('location:manage-categories.php');
                     <!-- Advanced Tables -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           Categories Listing
+                          Issued Books 
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -144,15 +113,16 @@ header('location:manage-categories.php');
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Category</th>
-                                            <th>Status</th>
-                                            <th>Creation Date</th>
-                                            <th>Updation Date</th>
+                                            <th>Student Name</th>
+                                            <th>Book Name</th>
+                                            <th>ISBN </th>
+                                            <th>Issued Date</th>
+                                            <th>Return Date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-<?php $sql = "SELECT * from  tblcategory";
+<?php $sql = "SELECT tblstudents.FullName,tblbooks.BookName,tblbooks.ISBNNumber,tblissuedbookdetails.IssuesDate,tblissuedbookdetails.ReturnDate,tblissuedbookdetails.id as rid from  tblissuedbookdetails join tblstudents on tblstudents.StudentId=tblissuedbookdetails.StudentId join tblbooks on tblbooks.id=tblissuedbookdetails.BookId order by tblissuedbookdetails.id desc";
 $query = $db -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -163,17 +133,23 @@ foreach($results as $result)
 {               ?>                                      
                                         <tr class="odd gradeX">
                                             <td class="center"><?php echo htmlentities($cnt);?></td>
-                                            <td class="center"><?php echo htmlentities($result->CategoryName);?></td>
-                                            <td class="center"><?php if($result->Status==1) {?>
-                                            <a href="#" class="btn btn-success btn-xs">Active</a>
-                                            <?php } else {?>
-                                            <a href="#" class="nice">Inactive</a>
-                                            <?php } ?></td>
-                                            <td class="center"><?php echo htmlentities($result->CreationDate);?></td>
-                                            <td class="center"><?php echo htmlentities($result->UpdationDate);?></td>
+                                            <td class="center"><?php echo htmlentities($result->FullName);?></td>
+                                            <td class="center"><?php echo htmlentities($result->BookName);?></td>
+                                            <td class="center"><?php echo htmlentities($result->ISBNNumber);?></td>
+                                            <td class="center"><?php echo htmlentities($result->IssuesDate);?></td>
+                                            <td class="center"><?php if($result->ReturnDate=="")
+                                            {
+                                                echo htmlentities("Not Return Yet");
+                                            } else {
+
+
+                                            echo htmlentities($result->ReturnDate);
+}
+                                            ?></td>
                                             <td class="center">
-                                            <a href="edit-categories.php?catid=<?php echo htmlentities($result->id);?>"><button class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button></a>
-                                            <a href="manage-categories.php?del=<?php echo htmlentities($result->id);?>" onclick="return confirm('Are you sure you want to delete?');"><button class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button></a>
+
+                                            <a href="update-issue-bookdeails.php?rid=<?php echo htmlentities($result->rid);?>"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button> 
+                                         
                                             </td>
                                         </tr>
  <?php $cnt=$cnt+1;}} ?>                                      
@@ -195,7 +171,6 @@ foreach($results as $result)
      <!-- CONTENT-WRAPPER SECTION END-->
   <?php include('../includes/footer.php');?>
       <!-- FOOTER SECTION END-->
-    
     <!-- CORE JQUERY  -->
     <script src="../public/assests/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
@@ -205,6 +180,5 @@ foreach($results as $result)
     <script src="../public/assests/js/datatables/dataTables.bootstrap.js"></script>
       <!-- CUSTOM SCRIPTS  -->
     <script src="../public/assests/js/custom.js"></script>
-</body>
 </html>
 <?php } ?>

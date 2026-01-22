@@ -14,7 +14,7 @@
             </div>
 
             <div class="right-div">
-                <a href="logout.php" class="btn btn-danger pull-right">LOG ME OUT</a>
+                <a href="logout.php" class="btn btn-danger pull-right"style=" background-color:#d9534f; color:white; border:1px solid #d43f3a; background:linear-gradient(135deg, #dc3545, #ff6b9d); display:inline-block; padding:1px 5px; font-size:12px; line-height:1.5; border-radius:3px; ">LOG ME OUT</a>
             </div>
         </div>
     </div>
