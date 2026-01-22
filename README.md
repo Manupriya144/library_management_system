@@ -1,7 +1,5 @@
-# library_management_system
-# start_date 2026_01_02
 
-# 📚 Library Management System
+# start_date 2026_01_02
 
 # 📚 Library Management System
 
@@ -69,3 +67,41 @@ The Library Management System helps librarians and administrators manage library
 ### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/Manupriya144/library_management_system.git
+2️⃣ Move to Web Server Directory
+
+Copy the project folder to your server root:
+
+XAMPP: htdocs
+
+WAMP: www
+
+Example:
+
+C:/xampp/htdocs/library_management_system
+
+3️⃣ Configure Database
+
+Open the database configuration file (example: config.php) and update:
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "library";
+
+4️⃣ Set Up Database
+
+Start Apache and MySQL from XAMPP/WAMP
+
+Open phpMyAdmin
+
+Create a new database (e.g., library)
+
+Import the SQL file provided in the project
+
+5️⃣ Run the Application
+
+Open your browser and navigate to:
+
+http://localhost/library_management_system/
+
+🗄️ Database Schema (Example)
